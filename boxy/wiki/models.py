@@ -10,4 +10,4 @@ class Document(models.Model):
     slug = models.CharField(max_length=255)
 
     def get_absolute_url(self):
-        return f'/wiki/doc/{self.slug}'
+        return f'/wiki/doc/{self.slug}/'

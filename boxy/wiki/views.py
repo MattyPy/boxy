@@ -1,5 +1,5 @@
 from django.shortcuts import render, reverse, redirect
-from django.views.generic import CreateView, DeleteView, DetailView
+from django.views.generic import CreateView, DeleteView, DetailView, UpdateView
 
 from .models import Document
 from .forms import DocumentForm
@@ -9,6 +9,7 @@ from .forms import DocumentForm
 
 def document_view(request):
     return render(request, 'wiki/document.html', context=None)
+
 
 class DocumentDetailView(DetailView):
     model = Document
@@ -23,3 +24,8 @@ class DocumentCreateView(CreateView):
 class DocumentDeleteView(DeleteView):
     model = Document
     success_url = '/'
+
+
+class DocumentUpdateview(UpdateView):
+    model = Document
+    form_class = DocumentForm
