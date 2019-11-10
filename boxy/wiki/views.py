@@ -1,5 +1,6 @@
 from django.shortcuts import render, reverse, redirect
 from django.views.generic import CreateView, DeleteView, DetailView, UpdateView
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 from .models import Document
 from .forms import DocumentForm

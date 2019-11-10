@@ -1,9 +1,11 @@
 import unittest
 
 from django.shortcuts import reverse
-from django.test import Client, TestCase
+from django.test import Client, TestCase, RequestFactory
 
+from boxy.users.tests.factories import UserFactory
 from ..models import Document
+from ..views import DocumentUpdateview
 
 
 class WikiViewsTestCase(TestCase):
@@ -20,3 +22,13 @@ class WikiViewsTestCase(TestCase):
         c = Client()
         res = c.post('/wiki/create/', data={'title': 'this is a title', 'slug': 'this-slug'})
         assert res.status_code == 302
+"""
+    def test_user_update(self):
+        user = UserFactory()
+        rf = RequestFactory()
+        request = rf.get(reverse('wiki:edit', kwargs={'slug': f'{self.doc.slug}'}))
+        request.user = user
+        view = DocumentUpdateview()
+        view.request = request
+        assert view.get_object() == self.doc
+"""
