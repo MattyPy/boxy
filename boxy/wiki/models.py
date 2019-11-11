@@ -9,8 +9,6 @@ class Document(models.Model):
 
     slug = models.CharField(max_length=255)
 
-    html = models.TextField()
-
     def __str__(self):
         return f'{self.get_absolute_url()}, ({self.title})'
 
