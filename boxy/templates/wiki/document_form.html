@@ -3,3 +3,8 @@
 {% block content %}
   {% crispy form %}
 {% endblock %}
+
+{% block javascript %}
+  {{ block.super }}
+  <script src="https://cdn.ckeditor.com/ckeditor5/15.0.0/classic/ckeditor.js"></script>
+{% endblock %}

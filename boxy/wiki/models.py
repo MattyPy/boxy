@@ -14,3 +14,8 @@ class Document(models.Model):
 
     def get_absolute_url(self):
         return f'/wiki/doc/{self.slug}/'
+
+
+class Revision(models.Model):
+
+    content = models.TextField()
