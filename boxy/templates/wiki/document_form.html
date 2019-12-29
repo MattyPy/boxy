@@ -7,4 +7,11 @@
 {% block javascript %}
   {{ block.super }}
   <script src="https://cdn.ckeditor.com/ckeditor5/15.0.0/classic/ckeditor.js"></script>
+  <script type="text/javascript">
+    ClassicEditor
+      .create(document.querySelector('#id_content'))
+      .catch(error => {
+        console.error(error);
+      });
+  </script>
 {% endblock %}
